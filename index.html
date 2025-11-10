@@ -1,87 +1,62 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NWAY PANEL</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg">
+  <meta name="theme-color" content="#0f172a">
   <style>
+    :root {
+      --bg-dark: #0f172a;
+      --bg-card: #1e293b;
+      --text-main: #ffffff;
+      --text-sub: #94a3b8;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --danger: #ef4444;
+    }
+
     body {
-      font-family: 'Poppins', sans-serif;
-      background: #0f0f0f;
-      color: #fff;
-      text-align: center;
+      font-family: "Poppins", sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-main);
       margin: 0;
       padding: 0;
+      min-height: 100vh;
     }
 
     h1 {
-      background: linear-gradient(90deg, #ff0080, #7928ca);
-      padding: 20px;
-      margin: 0;
-      font-size: 1.8em;
-    }
-
-    .panel-list {
+      background: var(--bg-card);
+      padding: 16px;
+      font-size: 1.5em;
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
       justify-content: center;
-      gap: 15px;
-      padding: 30px;
-    }
-
-    .panel-item {
-      background: #1a1a1a;
-      border: 2px solid #444;
-      border-radius: 10px;
-      padding: 15px 20px;
-      width: 250px;
-      transition: 0.3s;
-    }
-
-    .panel-item:hover {
-      transform: scale(1.05);
-      border-color: #ff0080;
-    }
-
-    .panel-item h2 {
-      margin-top: 0;
-    }
-
-    .panel-item p {
-      margin: 5px 0;
-    }
-
-    .buy-btn {
-      background: #ff0080;
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 10px;
-    }
-
-    .buy-btn:hover {
-      background: #e60073;
+      gap: 10px;
+      margin: 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
     }
 
     /* LOGIN PAGE */
     #login-page {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      background: linear-gradient(135deg, #111827, #1e1b4b);
-      flex-direction: column;
       text-align: center;
+      background: var(--bg-dark);
+      animation: fadeIn 0.5s ease;
     }
 
     #login-page h2 {
-      color: #fff;
+      color: var(--text-main);
+      font-weight: 600;
       margin-bottom: 20px;
     }
 
@@ -90,49 +65,111 @@
       color: #fff;
       padding: 12px 20px;
       border: none;
-      border-radius: 8px;
-      font-size: 1em;
+      border-radius: 10px;
       cursor: pointer;
       font-weight: 600;
+      font-size: 1em;
       transition: 0.3s;
     }
 
     #login-btn:hover {
-      opacity: 0.9;
+      transform: scale(1.05);
+      opacity: 0.95;
     }
 
     #main-page {
       display: none;
+      animation: fadeIn 0.6s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     #logout-btn {
-      background: #ef4444;
+      background: var(--danger);
       color: #fff;
       border: none;
-      border-radius: 6px;
-      padding: 8px 14px;
+      border-radius: 8px;
+      padding: 6px 14px;
       cursor: pointer;
       font-size: 0.9em;
-      margin-left: 10px;
       font-weight: 500;
+      transition: 0.3s;
+    }
+
+    #logout-btn:hover {
+      background: #dc2626;
     }
 
     #greeting {
-      margin-top: 15px;
-      font-size: 1.1em;
+      margin-top: 20px;
+      font-size: 1.2em;
       color: #a5b4fc;
+      text-align: center;
     }
 
     #user-info {
+      text-align: center;
       margin-top: 10px;
+      color: var(--text-sub);
       font-size: 0.9em;
-      color: #aaa;
     }
 
+    .panel-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 30px 15px 80px;
+    }
+
+    .panel-item {
+      background: var(--bg-card);
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 18px;
+      width: 250px;
+      transition: 0.3s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    .panel-item:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(59,130,246,0.25);
+    }
+
+    .panel-item h2 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+
+    .panel-item p {
+      margin: 6px 0;
+      color: var(--text-sub);
+    }
+
+    .buy-btn {
+      display: inline-block;
+      margin-top: 10px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 10px 15px;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .buy-btn:hover {
+      background: var(--accent-hover);
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
-
   <!-- LOGIN PAGE -->
   <div id="login-page">
     <h2>Silakan login menggunakan akun Google Anda</h2>
@@ -141,9 +178,7 @@
 
   <!-- MAIN PAGE -->
   <div id="main-page">
-    <h1>🚀 NWAY PANEL 
-      <button id="logout-btn">Logout</button>
-    </h1>
+    <h1>🚀 NWAY PANEL <button id="logout-btn">Logout</button></h1>
 
     <div id="greeting">...</div>
     <div id="user-info"></div>
@@ -235,7 +270,6 @@
     const firebaseConfig = {
       apiKey: "AIzaSyC-YBkj9ObhzSxeysrypjZ-bzt7KVc3lKI",
       authDomain: "projectchat01-d16bc.firebaseapp.com",
-      databaseURL: "https://projectchat01-d16bc-default-rtdb.firebaseio.com",
       projectId: "projectchat01-d16bc",
       storageBucket: "projectchat01-d16bc.appspot.com",
       messagingSenderId: "163313653543",
@@ -255,8 +289,7 @@
     const userInfo = document.getElementById("user-info");
 
     function getGreeting() {
-      const now = new Date();
-      const hour = now.getHours();
+      const hour = new Date().getHours();
       if (hour >= 3 && hour < 5) return "🌌 Selamat Subuh!";
       if (hour >= 5 && hour < 10) return "🌅 Selamat Pagi!";
       if (hour >= 10 && hour < 14) return "☀️ Selamat Siang!";
@@ -281,13 +314,15 @@
         loginPage.style.display = "none";
         mainPage.style.display = "block";
         greeting.textContent = getGreeting();
-        userInfo.textContent = `👤 ${user.displayName} (${user.email})`;
+        userInfo.innerHTML = `
+          <img src="${user.photoURL}" width="50" height="50" style="border-radius:50%;margin-top:10px;"><br>
+          👤 ${user.displayName} <br> 📧 ${user.email}
+        `;
       } else {
         loginPage.style.display = "flex";
         mainPage.style.display = "none";
       }
     });
   </script>
-
 </body>
 </html>
