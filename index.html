@@ -1,132 +1,75 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NWAY PANEL</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #0b0e16;
-      color: #ffffff;
+      background: #0f0f0f;
+      color: #fff;
+      text-align: center;
       margin: 0;
       padding: 0;
-      line-height: 1.6;
     }
 
-    header {
-      background-color: #0e1422;
-      padding: 15px 20px;
-      text-align: center;
-      font-weight: 600;
-      font-size: 1.5em;
-      border-bottom: 1px solid #1e2638;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-      letter-spacing: 1px;
-    }
-
-    main {
-      max-width: 1000px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
-
-    .greeting {
-      text-align: center;
-      font-size: 1.1em;
-      margin-bottom: 20px;
-      color: #a5b4fc;
-      font-weight: 500;
-    }
-
-    .intro {
-      background: #111827;
-      border-radius: 16px;
-      padding: 25px;
-      text-align: center;
-      margin-bottom: 30px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
-    }
-
-    .intro h2 {
-      margin: 0 0 10px;
-      font-size: 1.4em;
-    }
-
-    .intro p {
-      color: #b0b8c3;
-      font-size: 0.95em;
-    }
-
-    h3 {
-      text-align: center;
-      margin-top: 10px;
-      font-size: 1.2em;
-      color: #e5e7eb;
+    h1 {
+      background: linear-gradient(90deg, #ff0080, #7928ca);
+      padding: 20px;
+      margin: 0;
+      font-size: 1.8em;
     }
 
     .panel-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 30px;
     }
 
     .panel-item {
-      background: #111827;
-      border-radius: 14px;
-      padding: 20px;
-      border: 1px solid #1f2937;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-      transition: all 0.3s ease;
+      background: #1a1a1a;
+      border: 2px solid #444;
+      border-radius: 10px;
+      padding: 15px 20px;
+      width: 250px;
+      transition: 0.3s;
     }
 
     .panel-item:hover {
-      border-color: #6366f1;
-      transform: translateY(-4px);
-      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+      transform: scale(1.05);
+      border-color: #ff0080;
     }
 
     .panel-item h2 {
       margin-top: 0;
-      font-size: 1.2em;
-      color: #60a5fa;
     }
 
     .panel-item p {
-      margin: 4px 0;
-      color: #9ca3af;
+      margin: 5px 0;
     }
 
     .buy-btn {
-      background: linear-gradient(90deg, #6366f1, #9333ea);
+      background: #ff0080;
       color: white;
-      padding: 10px 16px;
+      padding: 10px 15px;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      font-weight: 600;
+      font-weight: bold;
       text-decoration: none;
       display: inline-block;
-      margin-top: 12px;
-      transition: 0.3s;
+      margin-top: 10px;
     }
 
     .buy-btn:hover {
-      opacity: 0.9;
+      background: #e60073;
     }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-      color: #6b7280;
-      background-color: #0e1422;
-      margin-top: 40px;
-    }
-
-    /* Login Page */
+    /* LOGIN PAGE */
     #login-page {
       display: flex;
       align-items: center;
@@ -174,54 +117,121 @@
       font-weight: 500;
     }
 
-    #user-info {
-      font-size: 0.9em;
-      color: #a1a1aa;
-      text-align: center;
-      margin-top: 10px;
+    #greeting {
+      margin-top: 15px;
+      font-size: 1.1em;
+      color: #a5b4fc;
     }
+
+    #user-info {
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #aaa;
+    }
+
   </style>
 </head>
 <body>
 
-  <!-- Login Page -->
+  <!-- LOGIN PAGE -->
   <div id="login-page">
     <h2>Silakan login menggunakan akun Google Anda</h2>
-    <button id="login-btn">🔑 Login dengan Google</button>
+    <button id="login-btn">🔐 Login dengan Google</button>
   </div>
 
-  <!-- Main Page -->
+  <!-- MAIN PAGE -->
   <div id="main-page">
-    <header>
-      🚀 NWAY PANEL 
+    <h1>🚀 NWAY PANEL 
       <button id="logout-btn">Logout</button>
-    </header>
+    </h1>
 
-    <main>
-      <div class="greeting" id="greeting-text">...</div>
-      <div id="user-info"></div>
+    <div id="greeting">...</div>
+    <div id="user-info"></div>
 
-      <section class="intro">
-        <h2>Selamat Datang di NWAY Panel ⚙️</h2>
-        <p>Pilih paket CPU sesuai kebutuhan kamu — performa tinggi, stabil, dan harga bersahabat.</p>
-      </section>
-
-      <h3>💎 Daftar Paket CPU</h3>
-
-      <div class="panel-list" id="panel-list">
-        <!-- panel items sama seperti sebelumnya -->
+    <div class="panel-list">
+      <div class="panel-item">
+        <h2>💎 2 GB CPU</h2>
+        <p>⚙️ 40% Power</p>
+        <p>💰 10K / 1B</p>
+        <a class="buy-btn" href="https://wa.me/62858204856933?text=Halo%20min,%20saya%20mau%20beli%202GB%20CPU" target="_blank">Beli</a>
       </div>
-    </main>
 
-    <footer>© 2025 NWAY PANEL | All rights reserved.</footer>
+      <div class="panel-item">
+        <h2>⚡ 4 GB CPU</h2>
+        <p>⚙️ 70% Power</p>
+        <p>💰 20K / 1B</p>
+        <a class="buy-btn" href="https://wa.me/62858204856933?text=Halo%20min,%20saya%20mau%20beli%204GB%20CPU" target="_blank">Beli</a>
+      </div>
+
+      <div class="panel-item">
+        <h2>🔥 6 GB CPU</h2>
+        <p>⚙️ 120% Power</p>
+        <p>💰 30K / 1B</p>
+        <a class="buy-btn" href="https://wa.me/62858204856933?text=Halo%20min,%20saya%20mau%20beli%206GB%20CPU" target="_blank">Beli</a>
+      </div>
+
+      <div class="panel-item">
+        <h2>💥 8 GB CPU</h2>
+        <p>⚙️ 140% Power</p>
+        <p>💰 40K / 1B</p>
+        <a class="buy-btn" href="https://wa.me/62858204856933?text=Halo%20min,%20saya%20mau%20beli%208GB%20CPU" target="_blank">Beli</a>
+      </div>
+
+      <div class="panel-item">
+        <h2>🌈 10 GB CPU</h2>
+        <p>⚙️ 200% Power</p>
+        <p>💰 50K / 1B</p>
+        <a class="buy-btn" href="https://wa.me/62858204856933?text=Halo%20min,%20saya%20mau%20beli%2010GB%20CPU" target="_blank">Beli</a>
+      </div>
+
+      <div class="panel-item">
+        <h2>🚀 12 GB CPU</h2>
+        <p>⚙️ 250% Power</p>
+        <p>💰 60K / 1B</p>
+        <a class="buy-btn" href="https://wa.me/62858204856933?text=Halo%20min,%20saya%20mau%20beli%2012GB%20CPU" target="_blank">Beli</a>
+      </div>
+
+      <div class="panel-item">
+        <h2>💫 14 GB CPU</h2>
+        <p>⚙️ 350% Power</p>
+        <p>💰 70K / 1B</p>
+        <a class="buy-btn" href="https://wa.me/62858204856933?text=Halo%20min,%20saya%20mau%20beli%2014GB%20CPU" target="_blank">Beli</a>
+      </div>
+
+      <div class="panel-item">
+        <h2>🌋 16 GB CPU</h2>
+        <p>⚙️ 400% Power</p>
+        <p>💰 80K / 1B</p>
+        <a class="buy-btn" href="https://wa.me/62858204856933?text=Halo%20min,%20saya%20mau%20beli%2016GB%20CPU" target="_blank">Beli</a>
+      </div>
+
+      <div class="panel-item">
+        <h2>🎇 17 GB CPU</h2>
+        <p>⚙️ 550% Power</p>
+        <p>💰 90K / 1B</p>
+        <a class="buy-btn" href="https://wa.me/62858204856933?text=Halo%20min,%20saya%20mau%20beli%2017GB%20CPU" target="_blank">Beli</a>
+      </div>
+
+      <div class="panel-item">
+        <h2>🌍 18 GB CPU</h2>
+        <p>⚙️ 600% Power</p>
+        <p>💰 100K / 1B</p>
+        <a class="buy-btn" href="https://wa.me/62858204856933?text=Halo%20min,%20saya%20mau%20beli%2018GB%20CPU" target="_blank">Beli</a>
+      </div>
+    </div>
   </div>
 
-  <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
+  <!-- FIREBASE AUTH -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import {
+      getAuth,
+      GoogleAuthProvider,
+      signInWithPopup,
+      signOut,
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-  <script>
-    // Firebase config
     const firebaseConfig = {
       apiKey: "AIzaSyC-YBkj9ObhzSxeysrypjZ-bzt7KVc3lKI",
       authDomain: "projectchat01-d16bc.firebaseapp.com",
@@ -233,19 +243,17 @@
       measurementId: "G-XDB5952H1Q"
     };
 
-    // Init Firebase
-    const app = firebase.initializeApp(firebaseConfig);
-    const auth = firebase.getAuth(app);
-    const provider = new firebase.GoogleAuthProvider();
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
 
     const loginPage = document.getElementById("login-page");
     const mainPage = document.getElementById("main-page");
     const loginBtn = document.getElementById("login-btn");
     const logoutBtn = document.getElementById("logout-btn");
-    const greetingEl = document.getElementById("greeting-text");
+    const greeting = document.getElementById("greeting");
     const userInfo = document.getElementById("user-info");
 
-    // Greeting based on time
     function getGreeting() {
       const now = new Date();
       const hour = now.getHours();
@@ -256,46 +264,30 @@
       return "🌙 Selamat Malam!";
     }
 
-    // Login
     loginBtn.addEventListener("click", async () => {
       try {
-        const result = await firebase.signInWithPopup(auth, provider);
-        const user = result.user;
-        showMainPage(user);
+        await signInWithPopup(auth, provider);
       } catch (error) {
         alert("Login gagal: " + error.message);
       }
     });
 
-    // Logout
     logoutBtn.addEventListener("click", async () => {
-      await firebase.signOut(auth);
-      localStorage.removeItem("user");
-      showLoginPage();
+      await signOut(auth);
     });
 
-    // Auto-login check
-    firebase.onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, (user) => {
       if (user) {
-        showMainPage(user);
+        loginPage.style.display = "none";
+        mainPage.style.display = "block";
+        greeting.textContent = getGreeting();
+        userInfo.textContent = `👤 ${user.displayName} (${user.email})`;
       } else {
-        showLoginPage();
+        loginPage.style.display = "flex";
+        mainPage.style.display = "none";
       }
     });
-
-    // Show main page
-    function showMainPage(user) {
-      loginPage.style.display = "none";
-      mainPage.style.display = "block";
-      greetingEl.textContent = getGreeting();
-      userInfo.textContent = `👤 ${user.displayName} (${user.email})`;
-    }
-
-    // Show login page
-    function showLoginPage() {
-      loginPage.style.display = "flex";
-      mainPage.style.display = "none";
-    }
   </script>
+
 </body>
 </html>
