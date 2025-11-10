@@ -18,6 +18,10 @@
       --danger: #ef4444;
     }
 
+    * {
+      transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+    }
+
     body {
       font-family: "Poppins", sans-serif;
       background: var(--bg-dark);
@@ -256,7 +260,7 @@
     </div>
   </div>
 
-  <!-- FIREBASE AUTH -->
+  <!-- FIREBASE AUTH + THEME -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import {
@@ -288,6 +292,26 @@
     const greeting = document.getElementById("greeting");
     const userInfo = document.getElementById("user-info");
 
+    // === GANTI TEMA OTOMATIS BERDASARKAN JAM ===
+    function applyTheme() {
+      const hour = new Date().getHours();
+      const root = document.documentElement;
+
+      if (hour >= 3 && hour < 18) {
+        // Tema terang
+        root.style.setProperty("--bg-dark", "#f8fafc");
+        root.style.setProperty("--bg-card", "#ffffff");
+        root.style.setProperty("--text-main", "#0f172a");
+        root.style.setProperty("--text-sub", "#334155");
+      } else {
+        // Tema gelap
+        root.style.setProperty("--bg-dark", "#0f172a");
+        root.style.setProperty("--bg-card", "#1e293b");
+        root.style.setProperty("--text-main", "#ffffff");
+        root.style.setProperty("--text-sub", "#94a3b8");
+      }
+    }
+
     function getGreeting() {
       const hour = new Date().getHours();
       if (hour >= 3 && hour < 5) return "🌌 Selamat Subuh!";
@@ -310,6 +334,7 @@
     });
 
     onAuthStateChanged(auth, (user) => {
+      applyTheme(); // Terapkan tema setiap kali status login berubah
       if (user) {
         loginPage.style.display = "none";
         mainPage.style.display = "block";
